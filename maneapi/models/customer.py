@@ -6,7 +6,7 @@ from .style import HairStyle
 
 class Customer(models.Model):
     """Customer model class"""
-    stylist = models.ForeignKey(User, on_delete=models.CASCADE)
+    stylist = models.ForeignKey(User, on_delete=models.CASCADE, related_name='clients')
     name = models.CharField(max_length=50)
     date_created = models.DateField(auto_now=True)
-    style = models.ForeignKey(HairStyle, on_delete=models.SET_NULL, null=True)
+    style = models.ForeignKey(HairStyle, on_delete=models.SET_NULL, null=True, related_name= 'clients')
